@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandhana Balaji | Visual Comm & Branding Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.5/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.4.1/index.min.js"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .heading-font { font-family: 'Playfair Display', serif; }
+        .filter-btn { transition: all 0.3s ease; position: relative; }
+        .filter-btn.active { color: #000; font-weight: 700; }
+        .filter-btn.active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background: black; }
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="bg-white text-gray-900 overflow-x-hidden">
+
+    <nav x-data="{ mobileMenuOpen: false }" class="fixed w-full z-50 glass-nav border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <a href="#" class="flex items-center gap-4 group">
+                <div class="w-10 h-10 bg-black flex items-center justify-center rounded-lg group-hover:rotate-6 transition-transform">
+                    <span class="text-white font-bold text-lg tracking-tighter">NB</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-sm font-bold tracking-tighter uppercase leading-none">Nandhana Balaji's</span>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold">Portfolio</span>
+                </div>
+            </a>
+            
+            <div class="hidden md:flex space-x-10 text-xs uppercase tracking-[0.2em] font-semibold">
+                <a href="#work" class="hover:text-gray-400 transition-colors">Exhibits</a>
+                <a href="#about" class="hover:text-gray-400 transition-colors">About</a>
+                <a href="#contact" class="hover:text-gray-400 transition-colors">Contact</a>
+                <a href="assets/resume.pdf" download class="border border-black px-4 py-2 hover:bg-black hover:text-white transition-all">Download CV</a>
+            </div>
+
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden">
+                <svg x-show="!mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                </svg>
+                <svg x-show="mobileMenuOpen" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-white border-b border-gray-100 px-6 py-8 space-y-6 flex flex-col uppercase text-sm tracking-widest font-bold">
+            <a @click="mobileMenuOpen = false" href="#work">Exhibits</a>
+            <a @click="mobileMenuOpen = false" href="#about">About</a>
+            <a @click="mobileMenuOpen = false" href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="min-h-[70vh] flex items-center px-6 pt-32 md:pt-20">
+        <div class="max-w-6xl mx-auto w-full">
+            <span class="text-xs uppercase tracking-[0.5em] text-gray-400 block mb-6" data-aos="fade-up">Bachelor of Design | 2026</span>
+            <h1 class="text-5xl md:text-8xl heading-font mb-8 leading-[1.1]" data-aos="fade-up" data-aos-delay="100">
+                Strategic <span class="italic text-gray-300 text-6xl md:text-9xl">Vision,</span> <br>Tactile Design.
+            </h1>
+            <p class="text-lg text-gray-500 max-w-xl" data-aos="fade-up" data-aos-delay="200">
+                Visual Communication student specializing in branding narratives and digital storytelling.
+            </p>
+        </div>
+    </section>
+
+    <section id="work" class="max-w-7xl mx-auto px-6 py-20">
+        
+        <div class="flex flex-wrap gap-x-10 gap-y-4 mb-16 text-[11px] uppercase tracking-[0.3em] font-bold text-gray-400 border-b border-gray-100 pb-6" data-aos="fade-right">
+            <button onclick="filterSelection('all')" class="filter-btn active hover:text-black">All Work</button>
+            <button onclick="filterSelection('branding')" class="filter-btn hover:text-black">Strategic Branding</button>
+            <button onclick="filterSelection('sketches')" class="filter-btn hover:text-black">Sketches</button>
+            <button onclick="filterSelection('artwork')" class="filter-btn hover:text-black">Art Work</button>
+            <button onclick="filterSelection('photos')" class="filter-btn hover:text-black">Photography</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
+            <div class="portfolio-item branding group" data-aos="fade-up">
+                <a data-fslightbox="gallery" href="https://via.placeholder.com/1200x1600">
+                    <div class="overflow-hidden bg-gray-100 aspect-[3/4] mb-6 relative">
+                        <img src="https://via.placeholder.com/600x800" class="object-cover w-full h-full group-hover:scale-105 transition duration-700">
+                    </div>
+                </a>
+                <h3 class="heading-font text-2xl">Project Title</h3>
+                <p class="text-gray-400 text-xs mt-2 uppercase tracking-widest">Branding & Strategy</p>
+            </div>
+
+            <div class="portfolio-item sketches group" data-aos="fade-up" data-aos-delay="100">
+                <a data-fslightbox="gallery" href="https://via.placeholder.com/1200x1600">
+                    <div class="overflow-hidden bg-gray-50 aspect-[3/4] mb-6">
+                        <img src="https://via.placeholder.com/600x800" class="object-cover w-full h-full group-hover:scale-105 transition duration-700">
+                    </div>
+                </a>
+                <h3 class="heading-font text-2xl">Sketch Study</h3>
+                <p class="text-gray-400 text-xs mt-2 uppercase tracking-widest">Handmade Illustrations</p>
+            </div>
+            
+            <div class="portfolio-item artwork group" data-aos="fade-up" data-aos-delay="200">
+                <a data-fslightbox="gallery" href="https://via.placeholder.com/1200x1600">
+                    <div class="overflow-hidden bg-gray-50 aspect-[3/4] mb-6">
+                        <img src="https://via.placeholder.com/600x800" class="object-cover w-full h-full group-hover:scale-105 transition duration-700">
+                    </div>
+                </a>
+                <h3 class="heading-font text-2xl">Digital Art</h3>
+                <p class="text-gray-400 text-xs mt-2 uppercase tracking-widest">Art Work</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-gray-50 py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto" data-aos="fade-up">
+            <h2 class="text-4xl md:text-6xl heading-font mb-12 italic">Let's work together.</h2>
+            <a href="mailto:hello@nandhanabalaji.com" class="text-xl md:text-2xl border-b border-black pb-2 hover:opacity-50 transition-all">hello@nandhanabalaji.com</a>
+            <p class="mt-20 text-[10px] uppercase tracking-[0.4em] text-gray-400">
+                &copy; 2026 Nandhana Balaji's Portfolio
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        
+        function filterSelection(c) {
+            const items = document.querySelectorAll(".portfolio-item");
+            const btns = document.querySelectorAll(".filter-btn");
+            
+            if (c === "all") c = "";
+            
+            items.forEach(item => {
+                // Using hidden classes for smoother transitions
+                if (c === "" || item.classList.contains(c)) {
+                    item.classList.remove("hidden");
+                } else {
+                    item.classList.add("hidden");
+                }
+            });
+
+            btns.forEach(btn => btn.classList.remove("active"));
+            event.currentTarget.classList.add("active");
+            
+            // Refresh Lightbox
+            refreshFsLightbox();
+        }
+    </script>
+</body>
+</html>
